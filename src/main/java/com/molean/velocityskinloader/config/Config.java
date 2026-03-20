@@ -21,13 +21,8 @@ public class Config {
         TreeSet<SkinProviderConfig> skinProviderConfigs = new TreeSet<>();
         SkinProviderConfig blessing = new SkinProviderConfig();
         blessing.setType("BlessingSkin");
-        blessing.setUrl("https://skin.prinzeugen.net/");
+        blessing.setUrl("https://mcskin.bu7.top");
         blessing.setPriority(100);
-
-        SkinProviderConfig little = new SkinProviderConfig();
-        little.setType("BlessingSkin");
-        little.setUrl("https://littlesk.in/");
-        little.setPriority(99);
 
         SkinProviderConfig official = new SkinProviderConfig();
         official.setType("Official");
