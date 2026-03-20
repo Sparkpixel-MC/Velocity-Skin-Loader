@@ -26,7 +26,7 @@ public class OfficialSkinProvider implements SkinProvider {
             UUIDProfile uuidByName = MojangClient.instance().getUUIDByName(name);
             MojangSkin skinByUUIDProfile = MojangClient.instance().getSkinByUUIDProfile(uuidByName);
             List<GameProfile.Property> propertyList = skinByUUIDProfile.getProperties();
-            return propertyList.size() > 0 ? propertyList.get(0) : null;
+            return !propertyList.isEmpty() ? propertyList.get(0) : null;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

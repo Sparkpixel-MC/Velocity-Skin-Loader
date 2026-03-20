@@ -24,7 +24,7 @@ public class MojangClient extends ApiClient {
     }
 
     public MojangSkin getSkinByUUIDProfile(UUIDProfile uuidProfile) throws Exception {
-        HttpResponse<String> response = get("sessionserver.mojang.com/session/minecraft/profile/" + uuidProfile.getId());
+        HttpResponse<String> response = get("sessionserver.mojang.com/session/minecraft/profile/" + uuidProfile.getId() + "?unsigned=false");
         String body = response.body();
         return gson.fromJson(body, MojangSkin.class);
     }
