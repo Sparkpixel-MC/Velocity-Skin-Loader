@@ -20,18 +20,18 @@ public class Config {
     public static SortedSet<SkinProviderConfig> initialList() {
         TreeSet<SkinProviderConfig> skinProviderConfigs = new TreeSet<>();
         SkinProviderConfig blessing = new SkinProviderConfig();
-        blessing.setType("BlessingSkin");
-        blessing.setUrl("https://mcskin.bu7.top");
-        blessing.setPriority(100);
 
         SkinProviderConfig official = new SkinProviderConfig();
         official.setType("Official");
-        official.setPriority(0);
+        official.setPriority(100);
+
+        blessing.setType("BlessingSkin");
+        blessing.setUrl("https://mcskin.bu7.top");
+        blessing.setPriority(99);
         official.setUrl(null);
 
-        skinProviderConfigs.add(blessing);
-        skinProviderConfigs.add(little);
         skinProviderConfigs.add(official);
+        skinProviderConfigs.add(blessing);
         return skinProviderConfigs;
     }
 
