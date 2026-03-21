@@ -6,4 +6,8 @@ import lombok.Data;
 public class SkinGenerateException extends MineSkinAPIException {
     private String errorCode;
     private String error;
+
+    public SkinGenerateException() {
+        super();
+    }
 }

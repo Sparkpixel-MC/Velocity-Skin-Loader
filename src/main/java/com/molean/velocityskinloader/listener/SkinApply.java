@@ -34,11 +34,11 @@ public class SkinApply {
     public void onPlayerLogin(LoginEvent event) {
         String username = event.getPlayer().getUsername();
         Player player = event.getPlayer();
-        if (!loadSkinFromCache(player, true)) {
+        if (loadSkinFromCache(player, true)) {
             if (config.getGeneralConfig().isInitialBlockingLoading()) {
                 loadSkinOnline(player);
             } else {
-                if (!loadSkinFromCache(player, false)) {
+                if (loadSkinFromCache(player, false)) {
                     logger.info("Initial blocking loading is disabled.");
                     logger.info(username + " would has skin next login.");
                 }
@@ -56,10 +56,10 @@ public class SkinApply {
             if (!checkExpire || timeLimitedSkin.getExpireTime().toLocalDateTime().isAfter(LocalDateTime.now())) {
                 player.setGameProfileProperties(List.of(timeLimitedSkin.getProperty()));
                 logger.info("Load cached skin for " + username);
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public void loadSkinOnline(Player player) {
@@ -80,9 +80,9 @@ public class SkinApply {
                 }
             } catch (NoSuchSkinProviderException e) {
                 e.printStackTrace();
-            } catch (Exception exception) {
+            } catch (Exception e) {
                 if (config.getGeneralConfig().isPrintStackTracesIfSkinLoadFailed()) {
-                    exception.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
