@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class MojangSkin {
-    private List<GameProfile.Property> name;
+    private String name;
     private List<GameProfile.Property> properties;
     private List<GameProfile.Property> signature;
 }
